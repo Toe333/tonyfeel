@@ -15,21 +15,24 @@ short_description: Apply measured drummer pocket to quantized MIDI
 
 **Quantized MIDI in → real drummer pocket out.**
 
-TonyFeel measures microtiming from a real drum performance (kick layback, snare push, hat sit) and applies that pocket to dead-quantized GM drum MIDI — voice-locked, not drunk random jitter.
+TonyFeel measures microtiming from a real drum performance and applies that pocket to dead-quantized GM drum MIDI — voice-locked, not drunk random jitter.
 
 ## Demo (30 seconds)
 
 | File | What |
 |---|---|
-| [`demo/mad_4bars.wav`](demo/mad_4bars.wav) | Tony Bollas — 4 bars of solo live drums (excerpt) |
+| [`demo/mad_4bars.wav`](demo/mad_4bars.wav) | Tony Bollas — 4 bars solo live drums @ **114.219 BPM** |
 | [`demo/groove_quantized.mid`](demo/groove_quantized.mid) | Same groove, on the grid |
-| [`demo/groove_with_feel.mid`](demo/groove_with_feel.mid) | Same notes + TonyFeel @ 10% |
+| [`demo/groove_with_feel.mid`](demo/groove_with_feel.mid) | Same notes + **4-bar pack @ 25%** (default) |
 
-Pack: [`packs/tony_bollas_mad.json`](packs/tony_bollas_mad.json)
+**Canon pack:** [`packs/tony_bollas_mad_4bar.json`](packs/tony_bollas_mad_4bar.json) — measured from the demo WAV only.
 
-- Kick (verse): ~**+1.2 ms** (on/slightly back)
-- Snare (verse): ~**−7.8 ms** (pushes)
-- Default apply amount: **10%** of measured scatter
+- Kick: ~**−11.8 ms** (pushes)
+- Snare: ~**−5.6 ms** (pushes)
+- Hat: ~**+19.8 ms** (sits back)
+- Default apply amount: **25%**
+
+Secondary (full-song verse): [`packs/tony_bollas_mad.json`](packs/tony_bollas_mad.json)
 
 ## Install
 
@@ -47,8 +50,11 @@ uv pip install --python .venv/bin/python -e ".[extract]"
 ## CLI
 
 ```bash
-# Apply bundled Tony Bollas pack at 10%
-tonyfeel apply song.mid --feel tony_bollas_mad -p 10 -o song_felt.mid
+# Apply default pack (4-bar) at pack default 25%
+tonyfeel apply song.mid -o song_felt.mid
+
+# Explicit
+tonyfeel apply song.mid --feel tony_bollas_mad_4bar -p 25 -o song_felt.mid
 
 # List packs
 tonyfeel packs
@@ -65,7 +71,8 @@ tonyfeel extract mix.wav --demucs -o my_feel.json
 ```python
 from tonyfeel import apply_feel
 
-apply_feel("groove_quantized.mid", "tony_bollas_mad", amount=0.10, out_path="felt.mid")
+apply_feel("groove_quantized.mid", amount=0.25, out_path="felt.mid")
+# → uses tony_bollas_mad_4bar by default
 ```
 
 ## Hugging Face Space
@@ -85,7 +92,7 @@ Then open: https://huggingface.co/spaces/Toe333/tonyfeel
 
 1. **Extract** (optional): Beat This finds the beat grid → kick vs downbeat / snare vs beat 2 → feel JSON  
 2. **Apply**: one timing offset per (onset × voice); bias = measured mean; std × amount  
-3. Default amount is low (~10%) so it humanizes instead of stumbling
+3. Default amount is **25%** of measured scatter (bias applied fully)
 
 ## Credits
 

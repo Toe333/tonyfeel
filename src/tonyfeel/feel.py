@@ -39,20 +39,26 @@ def pack_path(name: str | Path) -> Path:
 
 
 def list_packs() -> list[str]:
+    """Pack names; canon demo pack first."""
     if not PACKS_DIR.is_dir():
         return []
-    return sorted(p.stem for p in PACKS_DIR.glob("*.json"))
+    names = sorted(p.stem for p in PACKS_DIR.glob("*.json"))
+    prefer = "tony_bollas_mad_4bar"
+    if prefer in names:
+        names.remove(prefer)
+        names.insert(0, prefer)
+    return names
 
 
 def load_feel(path: str | Path | None = None) -> tuple[dict[str, Any], dict[str, Any]]:
     """Load feel JSON. Returns (retimer, full_profile).
 
-    If path is None, uses the first available pack (prefer tony_bollas_mad).
+    If path is None, prefers tony_bollas_mad_4bar (demo canon).
     """
     if path is None:
         packs = list_packs()
-        if "tony_bollas_mad" in packs:
-            path = pack_path("tony_bollas_mad")
+        if "tony_bollas_mad_4bar" in packs:
+            path = pack_path("tony_bollas_mad_4bar")
         elif packs:
             path = pack_path(packs[0])
         else:

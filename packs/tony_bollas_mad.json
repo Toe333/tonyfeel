@@ -5,9 +5,9 @@
     "performer": "Tony Bollas",
     "piece": "MAD (live drums excerpt)",
     "year": 2007,
-    "note": "Pocket measured from a short live drum take. Demo audio is a 4-bar solo-drums excerpt only — not a full song release."
+    "note": "Full-song MAD verse pocket (secondary). Demo default is tony_bollas_mad_4bar @ 25%."
   },
-  "method": "Beat This quarters + kick→1 / snare→2 pocket",
+  "method": "Beat This quarters + kick\u21921 / snare\u21922 pocket",
   "seed_bpm": 115.0,
   "authority_pattern": {
     "authority": "tony_ear",
@@ -70,21 +70,36 @@
   "retimer": {
     "timing_std_ms": 17.87,
     "timing_bias_ms": 1.17,
-    "apply_amount": 0.1,
+    "apply_amount": 0.25,
     "swing_bur": 1.05,
     "velocity_jitter": 6,
-    "hat_pump_slots": [5, 8],
+    "hat_pump_slots": [
+      5,
+      8
+    ],
     "hat_vel_base": 75,
     "hat_vel_pump": 98,
     "seed": 2007,
     "method": "beat_this_kick1_snare2_v3",
     "source_window": "verse_bars_kick+snare",
     "voices": {
-      "kick": {"bias_ms": 1.17, "std_ms": 19.05},
-      "snare": {"bias_ms": -7.8, "std_ms": 15.45},
-      "hat": {"bias_ms": 5.69, "std_ms": 17.87},
-      "kit": {"bias_ms": -3.44, "std_ms": 17.87},
-      "note": "apply is voice-locked (one offset per tick×voice); bias=voice mean, std×amount"
+      "kick": {
+        "bias_ms": 1.17,
+        "std_ms": 19.05
+      },
+      "snare": {
+        "bias_ms": -7.8,
+        "std_ms": 15.45
+      },
+      "hat": {
+        "bias_ms": 5.69,
+        "std_ms": 17.87
+      },
+      "kit": {
+        "bias_ms": -3.44,
+        "std_ms": 17.87
+      },
+      "note": "apply is voice-locked (one offset per tick\u00d7voice); bias=voice mean, std\u00d7amount"
     }
   },
   "how_to_read": {

@@ -124,7 +124,7 @@ def extract_feel(
     device: str = "cpu",
     use_demucs: bool = False,
     seed_bpm: float | None = None,
-    apply_amount: float = 0.10,
+    apply_amount: float = 0.25,
 ) -> Path:
     """Analyze drum WAV → feel JSON pack. Returns path written."""
     wav_path = Path(wav_path)

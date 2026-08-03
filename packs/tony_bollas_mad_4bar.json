@@ -1,0 +1,97 @@
+{
+  "version": "tonyfeel_v1",
+  "name": "tony_bollas_mad_4bar",
+  "credits": {
+    "performer": "Tony Bollas",
+    "piece": "MAD \u2014 opening 4-bar solo drums loop @ 114.219 BPM",
+    "year": 2007,
+    "note": "Canon demo pack: pocket measured from the 4-bar excerpt only. Default apply amount 25%."
+  },
+  "method": "Beat This quarters + kick\u21921 / snare\u21922 pocket",
+  "seed_bpm": 114.22,
+  "tempo": {
+    "bpm_median": 115.38,
+    "n_beats": 16,
+    "n_downbeats": 4
+  },
+  "voices": {
+    "kick": {
+      "all": {
+        "n": 4,
+        "mean_ms": -11.77,
+        "std_ms": 4.64,
+        "median_ms": -14.08,
+        "on_pm10": 0.25,
+        "ahead_frac": 0.75,
+        "behind_frac": 0.0,
+        "pocket": "PUSHING (ahead)"
+      }
+    },
+    "snare": {
+      "all": {
+        "n": 4,
+        "mean_ms": -5.61,
+        "std_ms": 11.0,
+        "median_ms": -4.1,
+        "on_pm10": 0.5,
+        "ahead_frac": 0.5,
+        "behind_frac": 0.25,
+        "pocket": "PUSHING (ahead)"
+      }
+    },
+    "hat_8ths": {
+      "n": 30,
+      "mean_ms": 19.83,
+      "std_ms": 16.14,
+      "median_ms": 22.56,
+      "on_pm10": 0.167,
+      "ahead_frac": 0.067,
+      "behind_frac": 0.9,
+      "pocket": "LAID-BACK (behind)"
+    },
+    "kit_all": {
+      "n": 8,
+      "mean_ms": -8.69,
+      "std_ms": 8.99,
+      "median_ms": -13.33,
+      "on_pm10": 0.375,
+      "ahead_frac": 0.625,
+      "behind_frac": 0.125,
+      "pocket": "PUSHING (ahead)"
+    }
+  },
+  "retimer": {
+    "timing_std_ms": 8.99,
+    "timing_bias_ms": -11.77,
+    "apply_amount": 0.25,
+    "swing_bur": 1.0,
+    "velocity_jitter": 6,
+    "seed": 2007,
+    "method": "beat_this_kick1_snare2",
+    "source_window": "all_bars_kick+snare",
+    "voices": {
+      "kick": {
+        "bias_ms": -11.77,
+        "std_ms": 4.64
+      },
+      "snare": {
+        "bias_ms": -5.61,
+        "std_ms": 11.0
+      },
+      "hat": {
+        "bias_ms": 19.83,
+        "std_ms": 8.99
+      },
+      "kit": {
+        "bias_ms": -8.69,
+        "std_ms": 8.99
+      },
+      "note": "voice-locked apply; bias=voice mean, std\u00d7amount"
+    }
+  },
+  "how_to_read": {
+    "sign": "negative ms = ahead / pushing; positive = laid-back / behind",
+    "apply": "voice-locked jitter; amount scales std only",
+    "scope": "4-bar loop only \u2014 compare with tony_bollas_mad (full-song verse)"
+  }
+}

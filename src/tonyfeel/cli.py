@@ -92,8 +92,8 @@ def main(argv=None):
     p.add_argument("midi", help="input .mid")
     p.add_argument(
         "--feel",
-        default="tony_bollas_mad",
-        help="pack name or path (default: tony_bollas_mad)",
+        default="tony_bollas_mad_4bar",
+        help="pack name or path (default: tony_bollas_mad_4bar)",
     )
     p.add_argument("-o", "--out", help="output .mid")
     p.add_argument(
@@ -101,7 +101,7 @@ def main(argv=None):
         "--percent",
         type=float,
         default=None,
-        help="feel amount as percent (default: pack apply_amount, usually 10)",
+        help="feel amount as percent (default: pack apply_amount, usually 25)",
     )
     p.add_argument("--amount", type=float, default=None, help="feel amount 0..1 (alt to -p)")
     p.add_argument("--seed", type=int, default=None)
@@ -120,7 +120,7 @@ def main(argv=None):
     e.add_argument("--device", default="cpu", help="cpu or cuda for Beat This")
     e.add_argument("--demucs", action="store_true", help="isolate drums with Demucs first")
     e.add_argument("--bpm", type=float, default=None, help="seed BPM hint")
-    e.add_argument("-p", "--percent", type=float, default=10.0, help="default apply amount %%")
+    e.add_argument("-p", "--percent", type=float, default=25.0, help="default apply amount %%")
     e.set_defaults(func=_cmd_extract)
 
     k = sp.add_parser("packs", help="list bundled feel packs")

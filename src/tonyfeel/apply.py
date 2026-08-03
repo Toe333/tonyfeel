@@ -137,7 +137,7 @@ def apply_feel(
     """
     ret, full = load_feel(feel_path)
     rng = np.random.default_rng(seed if seed is not None else ret.get("seed", 2007))
-    amt = float(amount) if amount is not None else float(ret.get("apply_amount", 0.10))
+    amt = float(amount) if amount is not None else float(ret.get("apply_amount", 0.25))
     voice_map, is_mono, meas_bias, meas_std = voice_timing_maps(
         ret, full, amt, cli_bias=bias_ms, cli_std=std_ms, force_mono=mono
     )

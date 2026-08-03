@@ -20,7 +20,7 @@ DEMO_F = DEMO_DIR / "groove_with_feel.mid"
 
 def _packs():
     names = list_packs()
-    return names or ["tony_bollas_mad"]
+    return names or ["tony_bollas_mad_4bar"]
 
 
 def run_apply(midi_file, pack_name, percent, mono):
@@ -84,16 +84,16 @@ not random humanize. Demo pack: **Tony Bollas** (4-bar live excerpt).
                 )
                 pack = gr.Dropdown(
                     choices=packs,
-                    value=packs[0],
+                    value="tony_bollas_mad_4bar" if "tony_bollas_mad_4bar" in packs else packs[0],
                     label="Feel pack",
                 )
                 percent = gr.Slider(
                     1,
-                    50,
-                    value=10,
+                    100,
+                    value=25,
                     step=1,
                     label="Amount (%)",
-                    info="10% is the default sweet spot; 50% sounds drunk",
+                    info="25% is the default (4-bar loop pack); 100% = full measured scatter",
                 )
                 mono = gr.Checkbox(label="Mono kit-lock (legacy A/B)", value=False)
                 with gr.Row():
@@ -112,14 +112,14 @@ not random humanize. Demo pack: **Tony Bollas** (4-bar live excerpt).
             gr.Markdown("### Pre-rendered demo pair")
             with gr.Row():
                 gr.File(value=str(DEMO_Q), label="groove_quantized.mid")
-                gr.File(value=str(DEMO_F), label="groove_with_feel.mid (10%)")
+                gr.File(value=str(DEMO_F), label="groove_with_feel.mid (4-bar @ 25%)")
 
         gr.Markdown(
             """
 ### CLI
 ```bash
-tonyfeel apply song.mid --feel tony_bollas_mad -p 10 -o song_felt.mid
-tonyfeel extract drums.wav -o my_feel.json   # needs [extract] extras
+tonyfeel apply song.mid -o song_felt.mid          # 4-bar pack @ 25%
+tonyfeel extract drums.wav -o my_feel.json        # needs [extract] extras
 ```
 MIT · [GitHub](https://github.com/Toe333/tonyfeel)
 """
