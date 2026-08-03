@@ -72,6 +72,15 @@ apply_feel("groove_quantized.mid", "tony_bollas_mad", amount=0.10, out_path="fel
 
 This repo is a Gradio Space (`app.py`). Upload a MIDI (or use the demo), pick a pack, set amount, download felt MIDI.
 
+Deploy (needs an HF token with **Write** scope):
+
+```bash
+hf auth login
+bash scripts/push_space.sh Toe333/tonyfeel
+```
+
+Then open: https://huggingface.co/spaces/Toe333/tonyfeel
+
 ## How it works
 
 1. **Extract** (optional): Beat This finds the beat grid → kick vs downbeat / snare vs beat 2 → feel JSON  
