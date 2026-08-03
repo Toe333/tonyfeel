@@ -1,0 +1,4 @@
+# Hugging Face Space deps (cpu-basic apply demo)
+numpy>=1.24
+mido>=1.3
+gradio>=4.0

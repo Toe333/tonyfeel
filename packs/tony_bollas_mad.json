@@ -1,0 +1,96 @@
+{
+  "version": "tonyfeel_v1",
+  "name": "tony_bollas_mad",
+  "credits": {
+    "performer": "Tony Bollas",
+    "piece": "MAD (live drums excerpt)",
+    "year": 2007,
+    "note": "Pocket measured from a short live drum take. Demo audio is a 4-bar solo-drums excerpt only — not a full song release."
+  },
+  "method": "Beat This quarters + kick→1 / snare→2 pocket",
+  "seed_bpm": 115.0,
+  "authority_pattern": {
+    "authority": "tony_ear",
+    "bpm": 113.5,
+    "pickup_16": "SSSS",
+    "body_compact": "kksk-ks-",
+    "bar_a_8": "(HKC)(HK)(HS)(HK)(H)(HK)(HS)(H)",
+    "bar_b_8": "(HK)(HK)(HS)(HK)(H)(HK)(HS)(H)",
+    "form": "pickup + A B B B",
+    "hat_pump": "accent closed hats on continuation 8ths (slots 5 & 8)"
+  },
+  "tempo": {
+    "bpm_bar1": 112.65,
+    "bpm_median": 121.24,
+    "bpm_p90": 125.13,
+    "n_bars_source": 85
+  },
+  "voices": {
+    "kick": {
+      "all": {
+        "n": 81,
+        "mean_ms": 8.31,
+        "std_ms": 22.62,
+        "pocket": "LAID-BACK (behind)"
+      },
+      "verse": {
+        "n": 55,
+        "mean_ms": 1.17,
+        "std_ms": 19.05,
+        "pocket": "ON the grid (centered)"
+      }
+    },
+    "snare": {
+      "all": {
+        "n": 84,
+        "mean_ms": -7.79,
+        "std_ms": 16.09,
+        "pocket": "PUSHING (ahead)"
+      },
+      "verse": {
+        "n": 58,
+        "mean_ms": -7.8,
+        "std_ms": 15.45,
+        "pocket": "PUSHING (ahead)"
+      }
+    },
+    "hat_8ths": {
+      "n": 641,
+      "mean_ms": 5.69,
+      "std_ms": 25.49,
+      "pocket": "LAID-BACK (behind)"
+    },
+    "kit_verse": {
+      "n": 113,
+      "mean_ms": -3.44,
+      "std_ms": 17.87,
+      "pocket": "PUSHING (ahead)"
+    }
+  },
+  "retimer": {
+    "timing_std_ms": 17.87,
+    "timing_bias_ms": 1.17,
+    "apply_amount": 0.1,
+    "swing_bur": 1.05,
+    "velocity_jitter": 6,
+    "hat_pump_slots": [5, 8],
+    "hat_vel_base": 75,
+    "hat_vel_pump": 98,
+    "seed": 2007,
+    "method": "beat_this_kick1_snare2_v3",
+    "source_window": "verse_bars_kick+snare",
+    "voices": {
+      "kick": {"bias_ms": 1.17, "std_ms": 19.05},
+      "snare": {"bias_ms": -7.8, "std_ms": 15.45},
+      "hat": {"bias_ms": 5.69, "std_ms": 17.87},
+      "kit": {"bias_ms": -3.44, "std_ms": 17.87},
+      "note": "apply is voice-locked (one offset per tick×voice); bias=voice mean, std×amount"
+    }
+  },
+  "how_to_read": {
+    "sign": "negative ms = ahead / pushing; positive = laid-back / behind",
+    "kick": "offset of kick peak vs Beat This downbeat",
+    "snare": "offset of snare peak vs Beat This beat 2",
+    "apply": "voice-locked jitter (kick/snare/hat bias); amount scales std only"
+  }
+}
